@@ -7,26 +7,33 @@ function Robot(param) {
     this.direction = Direction[arr[2]];
 }
 
-
-Robot.prototype.move = function () {
+Robot.prototype.move = function (gridMaxX, gridMaxY) {
     switch (this.direction.code) {
         case "N":
-            this.y = this.y + 1;
+            if (gridMaxY > this.y) {
+                this.y = this.y + 1;
+            }
             break;
         case "S":
-            this.y = this.y - 1;
+            if (this.y > 0) {
+                this.y = this.y - 1;
+            }
             break;
         case "E":
-            this.x = this.x + 1;
+            if (gridMaxX > this.x) {
+                this.x = this.x + 1;
+            }
             break;
         case "W":
-            this.x = this.x - 1;
+            if (this.x > 0) {
+                this.x = this.x - 1;
+            }
             break;
 
         default:
             console.log("unknown direction ignoring move command");
     }
-    console.log("moving robot! " + this.x);
+    console.log("moving robot! " + this.x + " " + this.y + " " + this.direction.code);
 };
 
 Robot.prototype.left = function () {
@@ -37,5 +44,7 @@ Robot.prototype.right = function () {
     this.direction = Direction[this.direction.right];
 };
 
-
+Robot.prototype.getLocation = function () {
+    return this.x + " " + this.y + " " + this.direction.code;
+};
 module.exports = Robot;

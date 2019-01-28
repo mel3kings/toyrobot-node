@@ -16,14 +16,7 @@ rd.on('line', function (line) {
 });
 
 rd.on('close', function () {
-    let gridParams = input[0].split(" ");
-    if (!utils.isValidGrid(gridParams)) {
-        console.log("invalid grid command, please try again");
-        process.exit(0);
-    } else {
-        executeCommands(input);
-    }
-
+    executeCommands(input);
     process.exit(0);
 });
 

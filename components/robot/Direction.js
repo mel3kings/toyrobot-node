@@ -5,5 +5,4 @@ const Direction = {
     S: {code: "S", value: "SOUTH", right: "W", left: "E"},
 };
 
-
 module.exports = Direction;
