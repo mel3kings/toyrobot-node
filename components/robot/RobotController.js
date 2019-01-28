@@ -9,9 +9,7 @@ function executeCommands(input) {
         process.exit(0);
     }
     let grid = new Grid(gridParams);
-    let robots = [];
-    let robot = null;
-    let i = 1;
+    let robots = [], robot = null, i = 1;
     while (i < input.length) {
         let command = input[i];
         let robotParams = command.split(" ");
@@ -29,7 +27,6 @@ function executeCommands(input) {
         i++;
     }
     reportRobots(robots);
-    console.log("Done, Exiting Program");
 }
 
 function moveRobot(robot, command, grid) {

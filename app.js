@@ -18,6 +18,7 @@ rd.on('close', function () {
     if (input !== null && input.length > 0) {
         executeCommands(input);
     }
+    console.log("Done, Exiting Program");
     process.exit(0);
 });
 
