@@ -1,4 +1,5 @@
 const Direction = require('../components/robot/Direction');
+const Robot = require('../components/robot/Robot');
 const expect = require('chai').expect;
 
 
@@ -32,3 +33,63 @@ describe('test Direction', function () {
         expect(direction).to.be.an('undefined');
     });
 });
+
+describe('test Moving Robot', function () {
+    it('should move north correctly', function () {
+        let arr = "0 0 N";
+        let robot = new Robot(arr);
+        robot.move();
+        expect(robot.y).to.be.equal(1);
+    });
+
+    it('should move south correctly', function () {
+        let arr = "1 1 S";
+        let robot = new Robot(arr);
+        robot.move();
+        expect(robot.y).to.be.equal(0);
+    });
+
+    it('should move east correctly', function () {
+        let arr = "1 1 E";
+        let robot = new Robot(arr);
+        robot.move();
+        expect(robot.x).to.be.equal(2);
+    });
+
+    it('should move west correctly', function () {
+        let arr = "1 1 W";
+        let robot = new Robot(arr);
+        robot.move();
+        expect(robot.x).to.be.equal(0);
+    });
+});
+
+
+describe('test Turning Robot', function () {
+    it('should move turn left correctly', function () {
+        let arr = "0 0 N";
+        let robot = new Robot(arr);
+        robot.left();
+        expect(robot.direction.code).to.be.equal("W");
+    });
+
+    it('should move turn right correctly', function () {
+        let arr = "0 0 N";
+        let robot = new Robot(arr);
+        robot.right();
+        expect(robot.direction.code).to.be.equal("E");
+
+        robot.right();
+        expect(robot.direction.code).to.be.equal("S");
+
+        robot.right();
+        expect(robot.direction.code).to.be.equal("W");
+
+        robot.right();
+        expect(robot.direction.code).to.be.equal("N");
+    });
+
+});
+
+
+
