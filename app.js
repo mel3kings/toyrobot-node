@@ -8,8 +8,7 @@ let rd = readline.createInterface({
 });
 
 let input = [];
-rd.setPrompt("Enter robot commands \nTo run: 'CTRL + D' (Mac/Unix) or 'CTRL + Z' + 'Return' (Windows)." +
-    " \n");
+rd.setPrompt("Enter robot commands \nTo run: 'CTRL + D' (Mac/Unix) or 'CTRL + Z' + 'Return' (Windows).\n");
 rd.prompt(true);
 rd.on('line', function (line) {
     input.push(line);

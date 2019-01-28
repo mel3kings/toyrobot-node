@@ -3,14 +3,12 @@ const Grid = require('./Grid');
 const Validator = require('./Validator');
 
 function executeCommands(input) {
-    let grid = null;
     let gridParams = input[0].split(" ");
     if (!Validator.isValidGrid(gridParams)) {
         console.log("invalid grid command, please try again");
         process.exit(0);
-    } else {
-        grid = new Grid(gridParams);
     }
+    let grid = new Grid(gridParams);
     let robots = [];
     let robot = null;
     let i = 1;

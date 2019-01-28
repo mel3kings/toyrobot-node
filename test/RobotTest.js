@@ -19,7 +19,6 @@ describe('test Direction', function () {
         expect(west.value).to.be.equal("WEST");
     });
 
-
     it('should rotate counter-clockwise correctly', function () {
         let direction = Direction["N"];
         for (var i = 0; i < 3; i++) {
@@ -88,7 +87,6 @@ describe('test Turning Robot', function () {
         robot.right();
         expect(robot.direction.code).to.be.equal("N");
     });
-
 });
 
 

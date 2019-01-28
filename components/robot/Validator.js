@@ -13,7 +13,6 @@ function isValidRobot(arr) {
     return true;
 };
 
-
 function isValidGrid(arr) {
     if (null === arr || arr.length !== 2) {
         return false;
@@ -27,5 +26,3 @@ module.exports = {
     isValidRobot: isValidRobot,
     isValidGrid: isValidGrid
 };
-
-

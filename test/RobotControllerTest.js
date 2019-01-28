@@ -22,7 +22,7 @@ describe('test controller', function () {
         expect(robot.getLocation()).to.be.equal("5 1 E");
     });
 
-    it('test move robot', function () {
+    it('should test move robot', function () {
         let arr = "0 0 N";
         let robot = new Robot(arr);
         let grid = new Grid([5, 5]);
