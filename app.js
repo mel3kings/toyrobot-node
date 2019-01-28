@@ -1,5 +1,4 @@
 const readline = require('readline');
-const utils = require('./components/robot/Validator');
 const {executeCommands} = require('./components/robot/RobotController');
 
 let rd = readline.createInterface({
@@ -9,20 +8,19 @@ let rd = readline.createInterface({
 });
 
 let input = [];
-rd.setPrompt(" Enter robot commands \n");
+rd.setPrompt("Enter robot commands \nTo run: 'CTRL + D' (Mac/Unix) or 'CTRL + Z' + 'Return' (Windows)." +
+    " \n");
 rd.prompt(true);
 rd.on('line', function (line) {
     input.push(line);
 });
 
 rd.on('close', function () {
-    executeCommands(input);
+    if (input !== null && input.length > 0) {
+        executeCommands(input);
+    }
     process.exit(0);
 });
-
-
-
-
 
 
 

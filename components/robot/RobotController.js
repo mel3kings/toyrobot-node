@@ -3,16 +3,17 @@ const Grid = require('./Grid');
 const Validator = require('./Validator');
 
 function executeCommands(input) {
-    let i = 1;
-    let robot = null;
     let grid = null;
     let gridParams = input[0].split(" ");
-    if (!utils.isValidGrid(gridParams)) {
+    if (!Validator.isValidGrid(gridParams)) {
         console.log("invalid grid command, please try again");
         process.exit(0);
     } else {
         grid = new Grid(gridParams);
     }
+    let robots = [];
+    let robot = null;
+    let i = 1;
     while (i < input.length) {
         let command = input[i];
         let robotParams = command.split(" ");
@@ -20,14 +21,16 @@ function executeCommands(input) {
             robot = new Robot(command);
         } else {
             if (robot === null) {
-                console.log("Robot has not been placed ignoring commands");
+                console.log("Robot has not been initialized correctly, ignoring commands");
             } else {
                 moveRobot(robot, command, grid);
+                robots.push(robot);
+                robot = null;
             }
         }
-        console.log(robot.getLocation());
         i++;
     }
+    reportRobots(robots);
     console.log("Done, Exiting Program");
 }
 
@@ -47,6 +50,13 @@ function moveRobot(robot, command, grid) {
                 break;
             default: //ignoring unknown;
         }
+    }
+}
+
+function reportRobots(robots) {
+    for (let i = 0; i < robots.length; i++) {
+        let robot = robots[i];
+        console.log(robot.getLocation());
     }
 }
 

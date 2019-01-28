@@ -38,28 +38,28 @@ describe('test Moving Robot', function () {
     it('should move north correctly', function () {
         let arr = "0 0 N";
         let robot = new Robot(arr);
-        robot.move();
+        robot.move(5,5);
         expect(robot.y).to.be.equal(1);
     });
 
     it('should move south correctly', function () {
         let arr = "1 1 S";
         let robot = new Robot(arr);
-        robot.move();
+        robot.move(5,5);
         expect(robot.y).to.be.equal(0);
     });
 
     it('should move east correctly', function () {
         let arr = "1 1 E";
         let robot = new Robot(arr);
-        robot.move();
+        robot.move(5,5);
         expect(robot.x).to.be.equal(2);
     });
 
     it('should move west correctly', function () {
         let arr = "1 1 W";
         let robot = new Robot(arr);
-        robot.move();
+        robot.move(5,5);
         expect(robot.x).to.be.equal(0);
     });
 });

@@ -33,7 +33,6 @@ Robot.prototype.move = function (gridMaxX, gridMaxY) {
         default:
             console.log("unknown direction ignoring move command");
     }
-    console.log("moving robot! " + this.x + " " + this.y + " " + this.direction.code);
 };
 
 Robot.prototype.left = function () {
@@ -47,4 +46,5 @@ Robot.prototype.right = function () {
 Robot.prototype.getLocation = function () {
     return this.x + " " + this.y + " " + this.direction.code;
 };
+
 module.exports = Robot;
