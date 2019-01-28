@@ -1,8 +1,7 @@
 const readline = require('readline');
 const utils = require('./components/robot/Validator');
-const RobotController = require('./components/robot/RobotController');
+const {executeCommands} = require('./components/robot/RobotController');
 
-let controller = new RobotController();
 let rd = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -22,7 +21,7 @@ rd.on('close', function () {
         console.log("invalid grid command, please try again");
         process.exit(0);
     } else {
-        controller.executeCommands(input);
+        executeCommands(input);
     }
 
     process.exit(0);

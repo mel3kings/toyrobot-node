@@ -1,12 +1,11 @@
-let {Direction} = require('../components/robot/Robot');
-let expect = require('chai').expect;
+const Direction = require('../components/robot/Direction');
+const expect = require('chai').expect;
 
 
-describe('test Robot Direction', function () {
+describe('test Direction', function () {
     it('should instantiate correctly', function () {
         let north = Direction["N"];
         expect(north.value).to.be.equal("NORTH");
-
         let east = Direction["E"];
         expect(east.value).to.be.equal("EAST");
     });

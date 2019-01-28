@@ -1,15 +1,12 @@
-function Robot(x, y, direction) {
-    this.x = x;
-    this.y = y;
-    this.direction = direction
+const Direction = require('./Direction');
+
+function Robot(param) {
+    let arr = param.split(" ");
+    this.x = arr[0];
+    this.y = arr[1];
+    this.direction = Direction[arr[2]];
 }
 
-const Direction = {
-    N: {value: "NORTH", right: "E", left: "W"},
-    E: {value: "EAST", right: "S", left: "N"},
-    W: {value: "WEST", right: "N", left: "S"},
-    S: {value: "SOUTH", right: "W", left: "E"},
-};
 
 
 Robot.prototype.move = function () {
@@ -17,15 +14,12 @@ Robot.prototype.move = function () {
 };
 
 Robot.prototype.left = function () {
-    console.log("moving left")
+    this.direction = Direction[this.direction.left];
 };
 
 Robot.prototype.right = function () {
-    console.log("moving right");
+    this.direction = Direction[this.direction.right];
 };
 
 
-module.exports = {
-    Robot: Robot,
-    Direction: Direction
-};
+module.exports = Robot;

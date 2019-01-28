@@ -1,5 +1,4 @@
-const {Direction} = require('./Robot');
-
+const Direction = require('./Direction');
 
 function isValidRobot(arr) {
     if (null === arr || arr.length !== 3) {

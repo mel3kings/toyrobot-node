@@ -6,16 +6,23 @@ function executeCommands(input) {
     let i = 1;
     let robot = null;
 
-    while (i <= input.length) {
+    while (i < input.length) {
         let command = input[i];
-        if (command.split(" ").length === 3 && Validator.isValidRobot(command)) {
+        let robotParams = command.split(" ");
+        if (robotParams.length === 3 && Validator.isValidRobot(robotParams)) {
             robot = new Robot(command);
-        } else {
             robot.move();
-            robot = null;
+        } else {
+            if (robot === null) {
+                console.log("Robot has not been placed ignoring commands");
+            } else {
+                robot.move();
+                robot = null;
+            }
         }
         i++;
     }
+    console.log("Done, Exiting Program");
 }
 
 module.exports = {
